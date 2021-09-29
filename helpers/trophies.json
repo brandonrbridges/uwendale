@@ -1,0 +1,8 @@
+{
+  "1": {
+    "title": "First Message!",
+    "description": "You sent your first message.",
+    "type": "message",
+    "goal": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "1": {
+    "expRequired": 100,
+    "reward": 100 
+  },
+  "2": {
+    "expRequired": 150,
+    "reward": 150
+  },
+  "3": {
+    "expRequired": 300,
+    "reward": 300
+  },
+  "4": {
+    "expRequired": 100000000,
+    "reward": 1
+  }
+}
