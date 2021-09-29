@@ -5,11 +5,13 @@
   "author": "Brandon Bridges <brandon@visually.digital>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.4",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
     "mongoose": "^6.0.8",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "riot-lol-api": "^4.3.3"
   },
   "scripts": {
     "dev": "nodemon bot"

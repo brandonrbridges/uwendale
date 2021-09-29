@@ -2,6 +2,8 @@ const { Command } = require('discord-akairo')
 
 const User = require('../models/User')
 
+const UwendaleEmbed = require('../helpers/embed')
+
 module.exports = class Balance extends Command {
   constructor() {
     super('balance', {
@@ -17,12 +19,19 @@ module.exports = class Balance extends Command {
   }
 
   async exec(message, { member }) {
+    const embed = UwendaleEmbed()
     const user = await User.findOne({ discordId: member.id })
 
     if(user) {
-      return message.channel.send(`${member}'s balance is ${user.balance}.`)
+      if(message.author.id == member.id) {
+        embed.setDescription(`Your balance is ${user.balance}, ${member}.`)
+      } else {
+        embed.setDescription(`${member}'s balance is ${user.balance}.`)
+      }
+      return message.channel.send(embed)
     } else {
-      return message.channel.send(`cannot find ${member} in the database. perhaps they haven't sent a message.`)
+      embed.setDescription(`Huh.. I can't seem to find ${member} in the database. Try again?`)
+      return message.channel.send(embed)
     }
   }
 }

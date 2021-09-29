@@ -1,8 +1,7 @@
-const { MessageEmbed } = require('discord.js')
-
 const { Command } = require('discord-akairo')
 
 const items = require('../helpers/shop.json').items
+const UwendaleEmbed = require('../helpers/embed')
 
 module.exports = class Shop extends Command {
   constructor() {
@@ -12,8 +11,9 @@ module.exports = class Shop extends Command {
   }
 
   exec(message) {
-    const embed = new MessageEmbed()
+    const embed = UwendaleEmbed()
 
+    embed.setDescription(`Welcome to the shop.. I guess?`)
     items.map(item => embed.addField(`${item.name}`, `[${'$' + item.price}] ${item.description}`))
     
     return message.channel.send(embed)   
