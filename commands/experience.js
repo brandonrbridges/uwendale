@@ -15,7 +15,8 @@ module.exports = class Experience extends Command {
           type: 'user',
           default: message => message.author
         }
-      ]
+      ],
+      slash: true
     })
   }
 

@@ -22,5 +22,9 @@ module.exports = mongoose.model('User', new mongoose.Schema({
   balance: {
     default: 0,
     type: Number
+  },
+  summonerName: {
+    default: null,
+    type: String
   }
 }))
