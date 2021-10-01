@@ -4,15 +4,39 @@
     "reward": 100 
   },
   "2": {
-    "expRequired": 150,
-    "reward": 150
+    "expRequired": 300,
+    "reward": 200
   },
   "3": {
-    "expRequired": 300,
+    "expRequired": 600,
     "reward": 300
   },
   "4": {
-    "expRequired": 100000000,
-    "reward": 1
+    "expRequired": 1000,
+    "reward": 400
+  },
+  "5": {
+    "expRequired": 1500,
+    "reward": 500
+  },
+  "6": {
+    "expRequired": 2100,
+    "reward": 600
+  },
+  "7": {
+    "expRequired": 2800,
+    "reward": 700
+  },
+  "8": {
+    "expRequired": 3600,
+    "reward": 800
+  },
+  "9": {
+    "expRequired": 4500,
+    "reward": 900
+  },
+  "10": {
+    "expRequired": 5500,
+    "reward": 1000
   }
 }

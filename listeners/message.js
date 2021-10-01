@@ -2,6 +2,7 @@ const { Listener } = require('discord-akairo')
 
 const User = require('../models/User')
 
+const UwendaleEmbed = require('../helpers/embed')
 const levels = require('../helpers/levels')
 
 module.exports = class Message extends Listener {
@@ -15,6 +16,10 @@ module.exports = class Message extends Listener {
 
   async exec(message) {
     if(message.author.bot) return
+
+    // message.channel.send(`Welcome to the server, ${message.author}.`)
+    
+    const embed = UwendaleEmbed()
     
     const user = await User.findOne({ discordId: message.author.id })
 
@@ -27,7 +32,7 @@ module.exports = class Message extends Listener {
             discriminator: message.author.discriminator
           },
           $inc: {
-            experience: 1
+            experience: (Math.round((Math.round(message.content.length - 2) ^ 0.39) * user.experienceMultiplier))
           }
         },
         { new: true }
@@ -48,7 +53,11 @@ module.exports = class Message extends Listener {
             { new: true }
           )
           .then(user => {
-            return message.channel.send(`nice one ${message.author}, you levelled up to level ${user.level}. you have been rewarded ${levels[user.level].reward} monies too.`)
+            embed.setTitle('Level up!')
+            embed.setDescription(`${message.author}, you levelled up to ${user.level}!`)
+            embed.addField('Rewards', `- ${levels[user.level].reward} money.`)
+            
+            return message.channel.send(embed)
           })
         }
       })

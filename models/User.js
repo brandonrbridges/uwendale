@@ -15,6 +15,10 @@ module.exports = mongoose.model('User', new mongoose.Schema({
     default: 0,
     type: Number
   },
+  experienceMultiplier: {
+    default: 1,
+    type: Number
+  },
   level: {
     default: 0,
     type: Number
